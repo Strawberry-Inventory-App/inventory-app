@@ -18,4 +18,21 @@ router.get("/:id", async (req, res) => {
  res.json(items);
 
 })
+
+//Post a single item
+router.post("/", async (req, res, next) => {
+  try {
+    const item = await Items.create(req.body);
+    res.send(item);
+  } catch (error) {
+    next(error);
+  }
+})
+
+// Create a single item to the inventory by id
+
+// Update a single item to the inventory by id
+
+// Delete a single item to the inventory by id
+
 module.exports = router;
