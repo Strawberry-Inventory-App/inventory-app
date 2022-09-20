@@ -47,19 +47,8 @@ router.put("/:id", async (req, res, next) => {
     next(error);
   }
 });
-// router.put("/:id", async (req, res, next) => {
-//   try {
-//     const item  = await Item.update(
-//       {status: req.body.status},
-//       {where : {id : req.params.id},
-//       return: true
-//     });
-//     res.send(item);
-//   } catch (error) {
-//     next(error);
-//   } 
-// })
 
+//testing pull
 
 // Delete a single item to the inventory by id
 router.delete("/:id", async (req, res, next) => {
