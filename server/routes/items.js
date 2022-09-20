@@ -37,23 +37,16 @@ router.post("/", async (req, res, next) => {
 
 // Update a single item to the inventory by id
 router.put("/:id", async (req, res, next) => {
-//   try {
-//     const item  = await Item.findByPk(req.body.status);
-//     await item.update ({
-//       id: req.body.id
-//     });
-//     res.send(item);
-// } catch (error) {
-//   next(error);
-  
-try {
-  const item = await Item.update      
-  ({where: {id: req.params.id} })
-  res.send(item);
-} catch (error) {
-  next(error);
-}
-})
+  try {
+    await Item.update(req.body, {
+      where: { id: req.params.id },
+    });
+    let putItems = await Item.findAll();
+    res.json(putItems);
+  } catch (error) {
+    next(error);
+  }
+});
 // router.put("/:id", async (req, res, next) => {
 //   try {
 //     const item  = await Item.update(
