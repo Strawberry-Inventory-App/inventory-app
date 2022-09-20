@@ -20,3 +20,13 @@ export const ItemsList = ({ items, setSingleItem, singleItem, setIsClicked }) =>
     </>
   );
 };
+
+// return <>
+// {
+//   items.map((item, idx) => {
+//     return <Item item={item} key={idx} />
+//   })
+// }
+// </>
+// } 
+

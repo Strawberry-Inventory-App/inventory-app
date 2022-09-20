@@ -3,6 +3,8 @@ const router = express.Router();
 const { Item } = require("../models");
 
 
+router.use(express.json());
+router.use(express.urlencoded({extended: true}))
 
 // GET all items
 router.get("/", async (req, res, next) => {
@@ -59,4 +61,4 @@ router.get("/:id", async (req, res) => {
 //   } 
 // })
 
-// module.exports = router;
+module.exports = router;

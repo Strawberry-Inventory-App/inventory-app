@@ -8,7 +8,13 @@ import apiURL from '../api';
 
 export const App = () => {
 
-	const [items, setItems] = useState([]);
+	const [items, setItems] = useState({
+		title: '',
+		price: 0,
+		category: '',
+		description: '',
+		image: ''
+	  })
 	const [isClicked, setIsClicked] = useState(false);
 	// single item data on state (a new piece of state)
 	const [singleItem, setSingleItem] = useState(null);
@@ -36,7 +42,7 @@ export const App = () => {
 
 	useEffect(() => {
 		fetchItems();
-	}, [setIsAddItem, singleItem]);
+	}, []);
 
 	return (
 		<main>	
