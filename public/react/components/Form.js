@@ -101,7 +101,8 @@ export const Form = ({ fetchItems, setIsAddItem }) => {
         />
         <button type="submit">Add item to inventory</button>
    
-        <button onClick={() => { setIsAddItem(false);  }} >Return to Inventory List! </button>
+        <button onClick={() => { setIsAddItem(false);  }} >Return to Inventory List!
+        </button>
       </form>
     </>
   );

@@ -63,8 +63,8 @@ export const App = () => {
    */}
 
 
-			{isClicked ? (
-				<SinglePageView singleItem={singleItem} setIsClicked={setIsClicked} />
+			{singleItem? (
+				<SinglePageView singleItem={singleItem} setIsAddItem={setIsAddItem}  />
 			) :
 				isAddItem? (
 					<Form setIsAddItem={setIsAddItem} fetchItems={fetchItems} />
@@ -73,7 +73,7 @@ export const App = () => {
 					<div>    
 					<h1>Strawberry Inventory Application</h1>
 					<h2>All things 🔥</h2>
-					<ItemsList items={items} setSingleItem={setSingleItem} setIsClicked={setIsClicked} />
+					<ItemsList items={items} setSingleItem={setSingleItem}  />
 					<button onClick={() => setIsAddItem(true)}>Add new Item to Inventory</button>
 				
 					</div>
