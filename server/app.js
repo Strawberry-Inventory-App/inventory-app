@@ -5,6 +5,11 @@ const app = express();
 const morgan = require('morgan');
 const path = require('path');
 const cors = require('cors');
+// const itemsRouter = require('./routes/items')
+
+
+//Express route for items
+// app.use("/items", itemsRouter);
 
 //Allow CORS requests
 app.use(cors());

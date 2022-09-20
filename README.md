@@ -21,9 +21,9 @@ Sequelize Model for Item
 
 Name, Description, Price, Category, Image
 
-Express Route to GET all Items
+Express Route to GET all Item
 
-Front-end View for all Items
+Front-end View for all Item
 
 As a User, I want to view any individual item
 

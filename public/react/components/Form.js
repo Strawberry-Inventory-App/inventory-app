@@ -1,28 +1,40 @@
 import React, { useState } from "react";
 import apiURL from "../api";
 
-export const Form = ({ setIsAddingItem }) => {
+export const AddItem = ({ fetchSingleItem, setIsAddItem }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
   const [category, setCategory] = useState("");
 
-  async function formSubmit(event) {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const data = { title, description, price, image, category };
+
     const response = await fetch(`${apiURL}/items`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
+      body: JSON.stringify({
+        title: title,
+        description: description,
+        price: price,
+        image: image,
+        category: category,
+      }),
     });
-    await response.json();
-    setIsAddingItem(false);
-  }
+    const data = await response.json();
+    fetchSingleItem();
+
+    setTitle("");
+    setDescription("");
+    setPrice("");
+    setImage("");
+    setCategory("");
+  };
   return (
     <>
       <h6>update form</h6>
-      <form onSubmit={formSubmit}>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="title"
@@ -67,12 +79,13 @@ export const Form = ({ setIsAddingItem }) => {
             setCategory(event.target.value);
           }}
         />
-        <button type="submit">Submit</button>
+        <button type="submit">Add item to inventory</button>
         <button
           onClick={() => {
-            setIsAddingItem(false);
+            setIsAddItem(false);
           }}
         >
+          {" "}
           Cancel
         </button>
       </form>
