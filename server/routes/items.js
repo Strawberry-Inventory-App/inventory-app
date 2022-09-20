@@ -2,6 +2,10 @@ const express = require("express");
 const router = express.Router();
 const { Item } = require("../models");
 
+
+router.use(express.json());
+router.use(express.urlencoded({extended: true}))
+
 // GET all items
 router.get("/", async (req, res, next) => {
   try {
@@ -19,20 +23,42 @@ router.get("/:id", async (req, res) => {
 
 })
 
-//Post a single item
+// Create a single item to the inventory by id
 router.post("/", async (req, res, next) => {
   try {
-    const item = await Items.create(req.body);
+    const item = await Item.create(req.body);
     res.send(item);
   } catch (error) {
     next(error);
   }
 })
 
-// Create a single item to the inventory by id
+
 
 // Update a single item to the inventory by id
+router.put("/:id", async (req, res, next) => {
+  try {
+    const [updatedRowCount, updatedItems] = await Item.update(req.body, {
+      where : {id : req.params.id},
+      return: true
+    });
+    res.send(updatedItems[0]);
+  } catch (error) {
+    next(error);
+  } 
+})
 
 // Delete a single item to the inventory by id
+router.delete("/:id", async (req, res, next) => {
+  try {
+    await Item.destroy({
+      where : {id : req.params.id}
+    });
+    const item = await Item.findAll()
+    res.send(item);
+  } catch (error) {
+    next(error);
+  } 
+})
 
 module.exports = router;
