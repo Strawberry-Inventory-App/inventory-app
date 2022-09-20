@@ -37,16 +37,36 @@ router.post("/", async (req, res, next) => {
 
 // Update a single item to the inventory by id
 router.put("/:id", async (req, res, next) => {
-  try {
-    const [updatedRowCount, updatedItems] = await Item.update(req.body, {
-      where : {id : req.params.id},
-      return: true
-    });
-    res.send(updatedItems[0]);
-  } catch (error) {
-    next(error);
-  } 
+//   try {
+//     const item  = await Item.findByPk(req.body.status);
+//     await item.update ({
+//       id: req.body.id
+//     });
+//     res.send(item);
+// } catch (error) {
+//   next(error);
+  
+try {
+  const item = await Item.update      
+  ({where: {id: req.params.id} })
+  res.send(item);
+} catch (error) {
+  next(error);
+}
 })
+// router.put("/:id", async (req, res, next) => {
+//   try {
+//     const item  = await Item.update(
+//       {status: req.body.status},
+//       {where : {id : req.params.id},
+//       return: true
+//     });
+//     res.send(item);
+//   } catch (error) {
+//     next(error);
+//   } 
+// })
+
 
 // Delete a single item to the inventory by id
 router.delete("/:id", async (req, res, next) => {
