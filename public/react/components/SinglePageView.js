@@ -3,7 +3,7 @@ import React from "react";
 
 import apiURL from "../api";
 
-export const SinglePageView= ({ singleItem, setIsAddItem}) => {
+export const SinglePageView= ( { singleItem, setIsAddItem} ) => {
 
   
   const deleteInventoryItem = async () => {        
