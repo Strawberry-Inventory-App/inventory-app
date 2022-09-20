@@ -11,6 +11,7 @@ export const ItemsList = ({ items, setSingleItem, singleItem, setIsClicked }) =>
       >
         Add Item
       </button> */}
+      
       {
         //Button to add(this is the Post request). Will have to update return statement.
         items.map((item, idx) => {

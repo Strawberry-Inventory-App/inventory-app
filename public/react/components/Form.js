@@ -21,7 +21,27 @@ export const AddItem = ({ fetchSingleItem, setIsAddItem }) => {
         image: image,
         category: category,
       }),
-    });
+    })
+
+      // const updateInventory = async (event) => {
+            
+      //   // window.location.reload(false)
+      //   // event.preventDefault();
+      //       const response = await fetch(`${apiURL}/items/id}`, {
+      //           method: 'PUT',
+      //           headers: {
+      //               'Content-Type': 'application/json',
+                  
+      //       body: JSON.stringify({
+          
+      //       title: title,
+      //       description: description,
+      //       price: price,
+      //       image: image,
+      //       category: category,
+      //       })}
+      //       })
+          
     const data = await response.json();
     fetchSingleItem();
 
@@ -80,6 +100,7 @@ export const AddItem = ({ fetchSingleItem, setIsAddItem }) => {
           }}
         />
         <button type="submit">Add item to inventory</button>
+        <button >Add item to inventory</button>
         <button
           onClick={() => {
             setIsAddItem(false);
@@ -92,3 +113,4 @@ export const AddItem = ({ fetchSingleItem, setIsAddItem }) => {
     </>
   );
 };
+// }

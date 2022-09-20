@@ -1,8 +1,16 @@
 import React, { useState } from "react";
 import apiURL from "../api";
+
+
+
+
+
+
+
 export const Item = ({ item, setIsClicked, setSingleItem }) => {
+  
   const displayItemDetails = async () => {
-    const response = await fetch(`${apiURL}/items/${item.id}`);
+    const response = await fetch(`${apiURL}/items/id`);
     const data = await response.json();
     setSingleItem(data);
     setIsClicked(true);
