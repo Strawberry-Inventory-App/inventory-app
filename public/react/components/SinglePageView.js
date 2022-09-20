@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 
 import apiURL from "../api";
 
-export const SinglePageView= ({item, singleItem, setIsClicked}) => {
+export const SinglePageView= ({ singleItem, setIsClicked}) => {
 
   
-  const deleteInventoryItem = async () => {        window.location.reload(false);
-    const response = await fetch(`${apiURL}/items`, {
+  const deleteInventoryItem = async () => {        
+    window.location.reload(false);
+    const response = await fetch(`${apiURL}/items/${item.id}`, {
         method: "DELETE"});
         const data = await response.json();
       
@@ -16,12 +17,11 @@ export const SinglePageView= ({item, singleItem, setIsClicked}) => {
     return (
     <>
 
-      {/* <h3>{item.title}</h3> */}
+      <h3>{singleItem.title}</h3>
       <h2>${singleItem.price}</h2>
-      <img src={singleItem.image}/>
       <p>Description {singleItem.description}</p>
       <p>{singleItem.category}</p>
-      <button onClick={() => setIsClicked(null)}>Return to InventoryS </button>
+      <button onClick={() => setIsClicked(null)}>Return to Inventory</button>
       <button onClick={deleteInventoryItem}>DELETE</button>
     </>
     );

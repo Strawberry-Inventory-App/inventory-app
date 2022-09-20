@@ -14,7 +14,7 @@ export const App = () => {
 	const [singleItem, setSingleItem] = useState(null);
 	const [isAddItem, setIsAddItem] = useState(false);
 
-	// const [] = useState();
+
 
 	async function fetchItems(){
 		try {
@@ -26,20 +26,21 @@ export const App = () => {
 			console.log("Oh no an error! ", err)
 		}
 	}
-	async function fetchSingleItem(id){
-		try {
-		  const response = await fetch(`${apiURL}/items/${id}`);
-		  const item = await response.json();
-		  setSingleItem(item);
-		} catch (err) {
-		  console.log("Oh no an error! ", err);
-		}
-	  }
+	// async function fetchSingleItem(id){
+	// 	try {
+	// 	  const response = await fetch(`${apiURL}/items/${id}`);
+	// 	  const item = await response.json();
+	// 	  setSingleItem(item);
+		  
+	// 	} catch (err) {
+	// 	  console.log("Oh no an error! ", err);
+	// 	}
+	//   }
 
 	useEffect(() => {
 		fetchItems();
-		fetchSingleItem();
-	}, [singleItem, isAddItem]);
+		// fetchSingleItem();
+	}, []);
 
 	return (
 		
@@ -63,15 +64,18 @@ export const App = () => {
 
 
 			{isClicked ? (
-				<SinglePageView singleItem={singleItem} isClicked={setIsClicked} />
+				<SinglePageView singleItem={singleItem} setIsClicked={setIsClicked} />
 			) :
 				isAddItem? (
 					<Form setIsAddItem={setIsAddItem} fetchItems={fetchItems} />
 
 				) : (
-					<div>    <h1>Strawberry Inventory Application</h1>
+					<div>    
+					<h1>Strawberry Inventory Application</h1>
 					<h2>All things 🔥</h2>
 					<ItemsList items={items} setSingleItem={setSingleItem} setIsClicked={setIsClicked} />
+					<button onClick={() => setIsAddItem(true)}>Add new Item to Inventory</button>
+				
 					</div>
 				)
 			}

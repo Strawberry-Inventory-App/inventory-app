@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import apiURL from "../api";
 
-export const AddItem = ({ fetchSingleItem, setIsAddItem }) => {
+export const Form = ({ fetchItems, setIsAddItem }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -43,7 +43,7 @@ export const AddItem = ({ fetchSingleItem, setIsAddItem }) => {
       //       })
           
     const data = await response.json();
-    fetchSingleItem();
+    fetchItems();
 
     setTitle("");
     setDescription("");
@@ -100,15 +100,8 @@ export const AddItem = ({ fetchSingleItem, setIsAddItem }) => {
           }}
         />
         <button type="submit">Add item to inventory</button>
-        <button >Add item to inventory</button>
-        <button
-          onClick={() => {
-            setIsAddItem(false);
-          }}
-        >
-          {" "}
-          Cancel
-        </button>
+   
+        <button onClick={() => { setIsAddItem(false);  }} >Return to Inventory List! </button>
       </form>
     </>
   );
