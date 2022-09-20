@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import apiURL from "../api";
 
 
@@ -27,7 +27,7 @@ export const Item = ({ item, setIsClicked, setSingleItem }) => {
        <h3>Click on image for details</h3>
       <div>
      
-        {/* <button>Add To Cart</button> */}
+
       </div>
 
 

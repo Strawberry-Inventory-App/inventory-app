@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import apiURL from "../api";
 
-export const SinglePageView= ({ singleItem, setIsClicked}) => {
+export const SinglePageView= ({item, singleItem, setIsClicked}) => {
 
   
   const deleteInventoryItem = async () => {        window.location.reload(false);
@@ -15,7 +15,8 @@ export const SinglePageView= ({ singleItem, setIsClicked}) => {
 
     return (
     <>
-      <h3>{singleItem.title}</h3>
+
+      {/* <h3>{item.title}</h3> */}
       <h2>${singleItem.price}</h2>
       <img src={singleItem.image}/>
       <p>Description {singleItem.description}</p>
