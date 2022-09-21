@@ -2,8 +2,9 @@ import React from "react";
 
 
 import apiURL from "../api";
+import { UpdatingInventory } from "./UpdateInventory";
 
-export const SinglePageView = ({ singleItem, setIsAddItem }) => {
+export const SinglePageView = ({ singleItem, setSingleItem, setIsUpdatingInventory, isUpdatingInventory}) => {
 
 
   const deleteInventoryItem = async () => {
@@ -15,42 +16,27 @@ export const SinglePageView = ({ singleItem, setIsAddItem }) => {
 
   }
 
-        const updateInventory = async (event) => {
-            
-        window.location.reload(false)
-        event.preventDefault();
-            const response = await fetch(`${apiURL}/items/id}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                  
-            body: JSON.stringify({
+
           
-            title: title,
-            description: description,
-            price: price,
-            image: image,
-            category: category,
-            })}
-            })
-            const data = await response.json();
-          }
   return (
     <>
 
-
+{isUpdatingInventory? (
+				<UpdatingInventory setIsUpdatingInventory={setIsUpdatingInventory} isUpdatingInventory={isUpdatingInventory} />
+        ) : ( <div>
       <h3>{singleItem.title}</h3>
       <img src={singleItem.image} />
       <h2>${singleItem.price}</h2>
       <p>{singleItem.description}</p>
       <p>{singleItem.category}</p>
-
-      <button onClick={() => { setIsAddItem(false); }}>Return to Inventory</button>
+      
+      <button onClick={() => setSingleItem(false)}>Return to Inventory</button>
       <button onClick={deleteInventoryItem}>DELETE</button>
-      <button onClick= {updateInventory}>Update the item in inventory</button>
-    </>
+      <button onClick={() => setIsUpdatingInventory(true)}>Update the item in inventory</button>
+      </div> )}
+      </>
   );
-};
+  }
 
 
 
