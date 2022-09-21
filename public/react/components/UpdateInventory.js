@@ -1,8 +1,9 @@
 import React, { useState} from 'react';
 import apiURL from "../api";
+// import {useRef} from 'react';
 
 
-export const UpdatingInventory = ( setIsUpdatingInventory, singleItem, setSingleItem) => {
+export const UpdatingInventory = ( setIsUpdatingInventory, singleItem, setSingleItem, fetchItems) => {
     // {const [title, setTitle] = useState(singleItem.title);
     // const [description, setDescription] = useState(singleItem.description);
     // const [price, setPrice] = useState(singleItem.price);
@@ -14,10 +15,11 @@ const [description, setDescription] = useState("");
 const [price, setPrice] = useState("");
 const [image, setImage] = useState("");
 const [category, setCategory] = useState("");
-  
+// const inputRef = useRef(singleItem.title);
 
     const updateSubmit = async (event) => {
       event.preventDefault();
+      // console.log(inputRef.current.value);
 
      
       
@@ -28,25 +30,38 @@ const [category, setCategory] = useState("");
                   
             body: JSON.stringify({
           
-           title,
-           description,
-           price,
-            image,
-            category,
+              title: title,
+              description: description,
+              price: price,
+              image: image,
+              category: category,
             })}
             })
             const data = await response.json();
+            // setSingleItem(data);
+            // fetchItems();
             console.log(data)
-          
-          }
 
+            // setTitle("");
+            // setDescription("");
+            // setPrice("");
+            // setImage("");
+            // setCategory("");
+          // };
+        
+         
+          
+    }
     
 
   
        return (
     <>
   {console.log( (singleItem.title))}
-      
+
+
+
+
         <h1>{singleItem.title}</h1>
         <h2>${singleItem.price}</h2>
         <img src={singleItem.image} alt={singleItem.title} />
@@ -66,8 +81,8 @@ const [category, setCategory] = useState("");
             setTitle(event.target.value);
           }}
         />
-      
-        <input
+
+        <input 
           type="text"
           placeholder="description"
           value={description}
@@ -93,7 +108,8 @@ const [category, setCategory] = useState("");
             setImage(event.target.value);
           }}
         />
-      
+        {/* https://bobbyhadz.com/blog/react-component-changing-uncontrolled-input */}
+           {/* value={category || ''} */}
         <input
           type="text"
           placeholder="category"
