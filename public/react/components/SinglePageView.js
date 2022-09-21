@@ -4,7 +4,7 @@ import React from "react";
 import apiURL from "../api";
 import { UpdatingInventory } from "./UpdateInventory";
 
-export const SinglePageView = ({ singleItem, setSingleItem, setIsUpdatingInventory, isUpdatingInventory}) => {
+export const SinglePageView = ({ singleItem, setSingleItem, setIsUpdatingInventory, isUpdatingInventory, fetchItems={fetchItems}}) => {
 
 
   const deleteInventoryItem = async () => {
