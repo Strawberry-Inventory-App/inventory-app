@@ -3,18 +3,19 @@ import apiURL from "../api";
 // import {useRef} from 'react';
 
 
-export const UpdatingInventory = ( setIsUpdatingInventory, singleItem, setSingleItem, fetchItems) => {
-    // {const [title, setTitle] = useState(singleItem.title);
-    // const [description, setDescription] = useState(singleItem.description);
-    // const [price, setPrice] = useState(singleItem.price);
-    // const [image, setImage] = useState(singleItem.image);
-    // const [category, setCategory] = useState(singleItem.category);
+export const UpdatingInventory = ({ setIsUpdatingInventory, singleItem }) => {
+
+    const [title, setTitle] = useState(singleItem.title);
+    const [description, setDescription] = useState(singleItem.description);
+    const [price, setPrice] = useState(singleItem.price);
+    const [image, setImage] = useState(singleItem.image);
+    const [category, setCategory] = useState(singleItem.category);
   
-const [title, setTitle] = useState("");
-const [description, setDescription] = useState("");
-const [price, setPrice] = useState("");
-const [image, setImage] = useState("");
-const [category, setCategory] = useState("");
+// const [title, setTitle] = useState("");
+// const [description, setDescription] = useState("");
+// const [price, setPrice] = useState("");
+// const [image, setImage] = useState("");
+// const [category, setCategory] = useState("");
 // const inputRef = useRef(singleItem.title);
 
     const updateSubmit = async (event) => {
@@ -42,32 +43,35 @@ const [category, setCategory] = useState("");
             // fetchItems();
             console.log(data)
 
-            // setTitle("");
-            // setDescription("");
-            // setPrice("");
-            // setImage("");
-            // setCategory("");
-          // };
+            setTitle("");
+            setDescription("");
+            setPrice("");
+            setImage("");
+            setCategory("");
+          };
         
          
           
-    }
+          
     
 
   
        return (
     <>
+  {/* {console.log( (singleItem.id))}
   {console.log( (singleItem.title))}
-
-
-
+  {console.log( (singleItem.price))}
+  {console.log( (singleItem.category))}
+  {console.log( (singleItem.image))} */}
 
         <h1>{singleItem.title}</h1>
         <h2>${singleItem.price}</h2>
+        <p>{singleItem.id}</p>
         <img src={singleItem.image} alt={singleItem.title} />
         <p>{singleItem.description}</p>
         <br></br>
         <h4>{singleItem.category}</h4>  
+        <p>{singleItem.id}</p>
         <br></br>
 
   

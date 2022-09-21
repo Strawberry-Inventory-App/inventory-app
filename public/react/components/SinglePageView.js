@@ -22,7 +22,7 @@ export const SinglePageView = ({ singleItem, setSingleItem, setIsUpdatingInvento
     <>
 
 {isUpdatingInventory? (
-				<UpdatingInventory setIsUpdatingInventory={setIsUpdatingInventory} isUpdatingInventory={isUpdatingInventory} singleItem={singleItem} fetchItems={fetchItems}/>
+				<UpdatingInventory setIsUpdatingInventory={setIsUpdatingInventory} isUpdatingInventory={isUpdatingInventory} singleItem={singleItem} />
         ) : ( <div>
       <h3>{singleItem.title}</h3>
       <img src={singleItem.image} />
