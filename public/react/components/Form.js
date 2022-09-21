@@ -23,26 +23,9 @@ export const Form = ({ fetchItems, setIsAddItem }) => {
       }),
     })
 
-      // const updateInventory = async (event) => {
-            
-      //   // window.location.reload(false)
-      //   // event.preventDefault();
-      //       const response = await fetch(`${apiURL}/items/id}`, {
-      //           method: 'PUT',
-      //           headers: {
-      //               'Content-Type': 'application/json',
-                  
-      //       body: JSON.stringify({
-          
-      //       title: title,
-      //       description: description,
-      //       price: price,
-      //       image: image,
-      //       category: category,
-      //       })}
-      //       })
           
     const data = await response.json();
+    console.log(data);
     fetchItems();
 
     setTitle("");
@@ -51,9 +34,12 @@ export const Form = ({ fetchItems, setIsAddItem }) => {
     setImage("");
     setCategory("");
   };
+
+ 
+
   return (
     <>
-      <h6>update form</h6>
+      <h6>Add inventory Item</h6>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -101,10 +87,8 @@ export const Form = ({ fetchItems, setIsAddItem }) => {
         />
         <button type="submit">Add item to inventory</button>
    
-        <button onClick={() => { setIsAddItem(false);  }} >Return to Inventory List!
-        </button>
+        <button onClick={() => { setIsAddItem(false)}} >Return to Inventory</button>
       </form>
     </>
   );
 };
-// }
