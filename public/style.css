@@ -1,5 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Roboto+Flex:opsz,wght@8..144,400;8..144,500&display=swap");
 * {
   margin: 0;
   box-sizing: border-box;
-  background-color: rgb(223, 223, 223);
+  background-color: rgb(255, 255, 255);
+  /* border: none; */
+  font-family: "Roboto Flex", sans-serif;
+}
+.img {
+  width: 25rem;
+}
+.img_update {
+  width: 15rem;
+}
+.img_main {
+  width: 15rem;
+}
+input[type="text"] {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+.btn {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  display: inline-block;
+}
+/* buttons */
+.btn-width {
+  width: 5rem;
+  margin-top: 1rem;
+}
+.btn_u {
+  margin: 1rem;
+}
+/* nav bar */
+.navbar-dark .navbar-toggler {
+  border-color: #fff;
+}
+.navbar .navbar-toggler {
+  border: 1px solid #fe4f81;
+  margin-left: 0.5rem;
+  padding: 1rem;
+  background-color: #fe4f81;
+}
+/*single page*/
+.border_c {
+}
+.colorR {
+  color: #fe4f81;
+}
+.styleTxt {
+  font-family: "Bungee Spice", cursive;
+}
+.setSize {
+  width: 10rem;
 }
