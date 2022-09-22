@@ -5,6 +5,12 @@ import { SinglePageView } from './SinglePageView';
 
 // import and prepend the api url to any fetch calls
 import apiURL from '../api';
+import CarouselView, { Carousel } from './Carousel';
+import NavBrand, {Nav} from  './Nav'
+import BrandNav from './Nav';
+
+
+
 
 
 
@@ -18,7 +24,7 @@ export const App = () => {
 		// update inventory item
 	const [isUpdatingInventory, setIsUpdatingInventory] = useState(false)
 
-
+	
 
 	async function fetchItems(){
 		try {
@@ -36,7 +42,7 @@ export const App = () => {
 		fetchItems();
 		
 	}, []);
-
+	
 	return (
 		
 		<main>	
@@ -51,12 +57,10 @@ export const App = () => {
 			
 				) : (
 					<div>    
-					<h1>Strawberry Inventory Application</h1> 
-					<h2>All things 🔥</h2>
-					<ItemsList items={items} setSingleItem={setSingleItem}  />
+					<BrandNav setIsAddItem={setIsAddItem} />
+					<CarouselView />
+					<ItemsList  items={items} setSingleItem={setSingleItem}  />
 					<button onClick={() => setIsAddItem(true)}>Add new Item to Inventory</button>
-				
-				
 					</div>
 				)
 			}
