@@ -4,7 +4,7 @@ import React from "react";
 import apiURL from "../api";
 import { UpdatingInventory } from "./UpdateInventory";
 
-export const SinglePageView = ({ singleItem, setSingleItem, setIsUpdatingInventory, isUpdatingInventory}) => {
+export const SinglePageView = ({ singleItem, setSingleItem, setIsUpdatingInventory, isUpdatingInventory, fetchItems={fetchItems}}) => {
 
 
   const deleteInventoryItem = async () => {
@@ -22,7 +22,7 @@ export const SinglePageView = ({ singleItem, setSingleItem, setIsUpdatingInvento
     <>
 
 {isUpdatingInventory? (
-				<UpdatingInventory setIsUpdatingInventory={setIsUpdatingInventory} isUpdatingInventory={isUpdatingInventory} />
+				<UpdatingInventory setIsUpdatingInventory={setIsUpdatingInventory} isUpdatingInventory={isUpdatingInventory} singleItem={singleItem} />
         ) : ( <div>
       <h3>{singleItem.title}</h3>
       <img src={singleItem.image} />
